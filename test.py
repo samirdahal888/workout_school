@@ -1,8 +1,8 @@
 from user.users import User
-from pathlib import Path
-print('hello')
-u1 = User('samir',12,5,55,'986999999','basic')
-u1.to_dict()
-u1.ExporttoJSON(Path("/home/samir-dahal/wokout_school/data"))
+from user.Basic import Basic
+from enum import StrEnum,auto,IntEnum
+from user.workoutplan import workout
+from datetime import datetime
 
-
+b = Basic('samir',12,5,4.4,'9999','basic')
+b.indoor_plan('basic')
