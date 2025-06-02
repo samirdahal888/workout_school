@@ -5,4 +5,4 @@ from user.workoutplan import workout
 from datetime import datetime
 
 b = Basic('samir',12,5,4.4,'9999','basic')
-b.indoor_plan('basic')
+b.indoor_plan()
