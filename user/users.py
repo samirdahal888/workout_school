@@ -1,8 +1,9 @@
 import json
 from pathlib import Path
 import os
+from abc import ABC
 
-class User:
+class User(ABC):
     """base class for user
 
     name: name of the user
