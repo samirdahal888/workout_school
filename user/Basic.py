@@ -41,9 +41,9 @@ class Basic(User):
     def outdoor_plan(self):
 
         if self.day == days.SUNDAY:
-           return OutdoorWorkout.running()
+           return OutdoorWorkout.running(self.fitnesslevel)
         elif self.day ==days.MONDAY:
-            return OutdoorWorkout.hiking()
+            return OutdoorWorkout.running(self.fitnesslevel)
         elif self.day== days.TUESDAY:
             return OutdoorWorkout.cycling()
         elif self.day ==days.WENESDAY:

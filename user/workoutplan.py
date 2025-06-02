@@ -44,3 +44,24 @@ class IndoreWorkout:
             print(f"pull ups {2*SET_LEVEL.ADVANCE} times ")
             print(f'push up {2*SET_LEVEL.ADVANCE} times')
 
+
+class OutdoorWorkout:
+    @staticmethod
+    def running(level:str)->None:
+        if level =='basic':
+            print(f'{SET_LEVEL.BASIC} km running')
+
+        if level =='Intermediate':
+            print(f"{SET_LEVEL.INTERMEDIATE} km running")
+
+
+        if level =='Advance':
+            print(f"{SET_LEVEL.ADVANCE} km running")
+
+
+          
+
+
+
+    
+
