@@ -16,13 +16,14 @@ class User:
     
     """
 
-    def __init__(self,name:str,age:int,height:int,weight:int,contactno:str,fitnesslevel:str,)->None:
+    def __init__(self,name:str,age:int,height:int,weight:int,contactno:str,fitnesslevel:str,city:str)->None:
         self.name = name
         self.age = age
         self.height = height
         self.weight = weight
         self.contactno = contactno
         self.fitnesslevel = fitnesslevel
+        self.city = city
 
     def to_dict(self)->dict:
         '''makes dictionary of the information provided'''
