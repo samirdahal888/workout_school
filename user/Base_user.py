@@ -1,7 +1,7 @@
 import json
 from pathlib import Path
 import os
-from abc import ABC
+from abc import ABC,abstractmethod
 
 class User(ABC):
     """base class for user
@@ -25,6 +25,13 @@ class User(ABC):
         self.contactno = contactno
         self.fitnesslevel = fitnesslevel
         self.city = city
+    @abstractmethod
+    def indoor_plan(self):
+        pass
+
+    @abstractmethod
+    def outdoor_plan(self):
+        pass
 
     def to_dict(self)->dict:
         '''makes dictionary of the information provided'''
