@@ -9,13 +9,14 @@ def form()->Planner:
     weight = float(input("Enter your weight:"))
     contact = input("Enter contact no:")
     fitnesslevel = input("Enter your fitnesslevel:")
-    city = input('Enter city')
-    
+    city = input('Enter city:')
+
     return Planner(name,age,height,weight,contact,fitnesslevel,city)
 
 def get_user_data(Base_path:Path,username:str)->Planner:
+    '''get user data from file if exist , if not then creater user'''
     try:
-        base_file = Path(Base_path)
+        base_file = Base_path
         target_file = f"{username}.json"
         json_file = list(base_file.rglob(target_file))
 

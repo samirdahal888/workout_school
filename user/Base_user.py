@@ -49,7 +49,6 @@ class User(ABC):
 
     def ExporttoJSON(self,filepath:Path)->None:
         '''Export the dictionary to the json file in the desier file'''
-        print("Exporting to json")
         os.makedirs(filepath,exist_ok=True)
         json_file = f'{filepath}/{self.name}.json'
         

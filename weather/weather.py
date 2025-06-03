@@ -12,6 +12,9 @@ API_KEY = os.getenv('WEATHER_API_KEY')
 def featch_weather_data(city:str)->json:
     """it helps to featch the weather of the particular city based on the city provided and correct API"""
     response = requests.get(f'https://api.openweathermap.org/data/2.5/weather?q={city}&appid={API_KEY}')
+    if response.status_code!=200:
+        print(f"city not found {response.status_code}")
+        return False
     data = response.json()
     return data
    
