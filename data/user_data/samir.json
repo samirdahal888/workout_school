@@ -1,8 +1,9 @@
 {
   "name": "samir",
-  "age": 12,
-  "height": 5.5,
-  "weight": 44,
-  "contact": "9999999",
-  "fitnesslevel": "basic"
+  "age": 22,
+  "height": 65.0,
+  "weight": 55.0,
+  "contact": "9869626645",
+  "fitnesslevel": "basic",
+  "city": "bhojpur"
 }

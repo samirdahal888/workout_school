@@ -1,5 +1,5 @@
 # from user.users import User
-from user.workout_Planner import Basic
+from user.User_workout_Planner import Basic
 # from enum import StrEnum,auto,IntEnum
 # # from user.workoutplan import 
 # from datetime import datetime

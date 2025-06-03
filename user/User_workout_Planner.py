@@ -3,7 +3,7 @@ from datetime import datetime
 from enum import StrEnum,auto
 from workout.workoutplan import IndoreWorkout,OutdoorWorkout
 from typing import Callable
-from weather.weather import current_weather
+from weather.weather import current_weather,save_weather_data
 
 type workoutFun = Callable[[str],None]
 
@@ -15,7 +15,7 @@ class days(StrEnum):
     THURSDAY = auto()
     FRIDAY = auto()
     SATAURDAY = auto()
-class Basic(User):
+class Planner(User):
     def __init__(self, name, age, height, weight, contactno, fitnesslevel,city):
         super().__init__(name, age, height, weight, contactno, fitnesslevel,city)
         self.day = datetime.today().strftime('%A')
@@ -28,7 +28,7 @@ class Basic(User):
         elif self.day == str(days.MONDAY):
             return IndoreWorkout.cardio(self.fitnesslevel)
         elif self.day== days.TUESDAY:
-            return IndoreWorkout.swimming()
+            return IndoreWorkout.cardio(self.fitnesslevel)
         elif self.day ==days.WENESDAY:
             return IndoreWorkout.weight()
         elif self.day ==days.THURSDAY:
@@ -40,12 +40,6 @@ class Basic(User):
         
 
     def outdoor_plan(self):
-        weathera = current_weather(self.city,filepath='/home/samir-dahal/wokout_school/data/user_data')
-        bad_weather = ['strom','wind','Clouds']
-        if weathera['weather'] in bad_weather:
-            print("TOdays weather is not so good so lest do indore workout")
-            return
-            
         if self.day == days.SUNDAY:
            return OutdoorWorkout.running(self.fitnesslevel)
         elif self.day ==days.MONDAY:

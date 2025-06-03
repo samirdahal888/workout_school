@@ -41,7 +41,8 @@ class User(ABC):
             "height":self.height,
             "weight":self.weight,
             "contact":self.contactno,
-            "fitnesslevel":self.fitnesslevel
+            "fitnesslevel":self.fitnesslevel,
+            'city':self.city
 
         }
         return dictionaty
