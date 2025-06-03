@@ -1,8 +1,21 @@
-from weather.weather import featch_weather_data,save_weather_data,current_weather
-from pathlib import Path
-featch_weather_data('kathmandu')
-save_weather_data(Path('/home/samir-dahal/wokout_school/data/weather_data'),'kathmandu')
-weather_data = current_weather('kathmandu')
-print(f"Hii , its {weather_data['weather'] } today  at {weather_data['city_name']} \n weather discription :{weather_data["description"]} ")
+from logger.logger import get_logger
+import logging
+from logtail import LogtailHandler
+# logger = logging.getLogger(__name__)
+# logger.setLevel(logging.DEBUG)
+# format = logging.Formatter('%(asctime)s -%(name)s: %(levelname)s - %(message)s')
+# SOURCE_TOKEN='23as3WGNbUkf8vxrbbjDmP2Q'
+# INGESTING_HOST = "s1334161.eu-nbg-2.betterstackdata.com"
+# Betterstack_handler = LogtailHandler(
+#         source_token=SOURCE_TOKEN,
+#         host=F"https://{INGESTING_HOST}"
 
-# get_user_data(Path('/home/samir-dahal/wokout_school/data'),'samir')
+#     )
+# Betterstack_handler.setFormatter(format)
+
+# logger.addHandler(Betterstack_handler)
+# logger.propagate = False
+
+# logger.info('hello')
+logger = get_logger(__name__,logging.DEBUG)
+logger.info('its justa wow')

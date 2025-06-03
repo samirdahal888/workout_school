@@ -1,1 +1,0 @@
-from weather.weather import current_weather

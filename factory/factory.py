@@ -27,5 +27,5 @@ def get_user_data(Base_path:Path,username:str)->Planner:
         return Planner(user_data['name'],user_data["age"],user_data['height'],user_data['weight'],user_data["contact"],user_data['fitnesslevel'],user_data['city'])
 
     except Exception:
-        print('you are the new member here so please enert your details')
+        print('you are the new member here so please enter your details')
         return form()
