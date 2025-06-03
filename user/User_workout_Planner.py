@@ -1,7 +1,7 @@
 from user.Base_user import User
 from datetime import datetime
 from enum import StrEnum,auto
-from ..workout.workoutplan import IndoreWorkout,OutdoorWorkout
+from workout.workoutplan import IndoreWorkout,OutdoorWorkout
 from typing import Callable
 from weather.weather import current_weather
 
@@ -44,13 +44,14 @@ class Basic(User):
         bad_weather = ['strom','wind','Clouds']
         if weathera['weather'] in bad_weather:
             print("TOdays weather is not so good so lest do indore workout")
+            return
             
         if self.day == days.SUNDAY:
            return OutdoorWorkout.running(self.fitnesslevel)
         elif self.day ==days.MONDAY:
             return OutdoorWorkout.running(self.fitnesslevel)
         elif self.day== days.TUESDAY:
-            return OutdoorWorkout.cycling()
+            return OutdoorWorkout.running(self.fitnesslevel)
         elif self.day ==days.WENESDAY:
             return OutdoorWorkout.rockcliming()
         elif self.day ==days.THURSDAY:

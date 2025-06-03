@@ -1,4 +1,4 @@
-from user.workout_Planner import Basic
+from user.User_workout_Planner import Basic
 # self,name:str,age:int,height:int,weight:int,contactno:str,fitnesslevel:str,city:str
 # name = input("Enter your name:")
 # age = int(input("Enter your age:"))

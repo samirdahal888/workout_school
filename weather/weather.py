@@ -9,11 +9,18 @@ load_dotenv()
 API_KEY = os.getenv('WEATHER_API_KEY')
 
 
-def current_weather(city:str,filepath:Path)->dict:
-    
+def featch_weather_data(city)->json:
+    """it helps to featch the weather of the particular city based on the city provided and correct API"""
     response = requests.get(f'https://api.openweathermap.org/data/2.5/weather?q={city}&appid={API_KEY}')
     data = response.json()
-    print(data)
+    return data
+
+
+    
+def current_weather(city:str,filepath:Path)->dict:
+    """helps to get the weateher conditon and its description"""
+
+    data = featch_weather_data(city)
     weather_data = {
         'weather':data['weather'][0]['main'],
         'description':data['weather'][0]['description'],   
