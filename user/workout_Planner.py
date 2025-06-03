@@ -1,7 +1,7 @@
-from user.users import User
+from user.Base_user import User
 from datetime import datetime
 from enum import StrEnum,auto
-from .workoutplan import IndoreWorkout,OutdoorWorkout
+from ..workout.workoutplan import IndoreWorkout,OutdoorWorkout
 from typing import Callable
 from weather.weather import current_weather
 
