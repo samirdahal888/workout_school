@@ -2,6 +2,9 @@ import json
 from pathlib import Path
 import os
 from abc import ABC,abstractmethod
+from logger.logger import get_logger
+import logging
+logger = get_logger(__name__,logging.DEBUG)
 
 class User(ABC):
     """base class for user
@@ -17,7 +20,9 @@ class User(ABC):
     
     """
 
+
     def __init__(self,name:str,age:int,height:int,weight:int,contactno:str,fitnesslevel:str,city:str)->None:
+        logger.info('getting the user information name,age,height,weight,contactno,fitnesslevel and city')
         self.name = name
         self.age = age
         self.height = height
@@ -35,6 +40,7 @@ class User(ABC):
 
     def to_dict(self)->dict:
         '''makes dictionary of the information provided'''
+        logger.info("making  dictionary of user information")
         dictionaty = {
             "name":self.name,
             "age":self.age,
@@ -49,6 +55,7 @@ class User(ABC):
 
     def ExporttoJSON(self,filepath:Path)->None:
         '''Export the dictionary to the json file in the desier file'''
+        logger.info(f'exporting the user information to the json file {filepath}')
         os.makedirs(filepath,exist_ok=True)
         json_file = f'{filepath}/{self.name}.json'
         
