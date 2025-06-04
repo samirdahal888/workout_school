@@ -1,5 +1,3 @@
-from pathlib import Path
-import json
 from user.Base_user import User
 from factory import factory
 from datetime import datetime,date
@@ -18,6 +16,11 @@ def weather_handeler(user:User)->None:
         featch_weather_data(user.city)
         save_weather_data(WEATHER_DATA_DIR,user.city)
         weather_data = current_weather(user.city)
+        #{
+        #      'weather':'sunny',
+        #      'description':"good weather",
+        #      'city_name':'kathmandu'
+        # }
         print('*********************** WEATHER *************************')
         print(f"It's {weather_data['weather'] } today  at {weather_data['city_name']} \nweather discription :{weather_data["description"]} ")
 

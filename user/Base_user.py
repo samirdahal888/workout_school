@@ -28,7 +28,7 @@ class User(ABC):
         self.height = height
         self.weight = weight
         self.contactno = contactno
-        self.fitnesslevel = fitnesslevel
+        self.fitnesslevel = fitnesslevel.lower()
         self.city = city
     @abstractmethod
     def indoor_plan(self):

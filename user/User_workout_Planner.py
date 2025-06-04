@@ -28,15 +28,16 @@ class Planner(User):
     def indoor_plan(self)->workoutFun:
         #cardio ,swimming , weight
         logger.debug(f"Today is {self.day} and starting the workout plan for today")
+        logger.debug(f'fiteness level {self.fitnesslevel}')
         
         if self.day == str(days.SUNDAY):
            return cardio(self.fitnesslevel)
         elif self.day == str(days.MONDAY):
             return swimming(self.fitnesslevel)
         elif self.day== days.TUESDAY:
-            return weight(self.fitnesslevel)
-        elif self.day ==days.WEDNESDAY:
             return cardio(self.fitnesslevel)
+        elif self.day ==days.WEDNESDAY:
+            return weight(self.fitnesslevel)
         elif self.day ==days.THURSDAY:
             return weight()
         elif self.day == days.FRIDAY:
@@ -45,7 +46,7 @@ class Planner(User):
         else: print(f"Today is {days.SATAURDAY} its a rest day , take good rest drink water be healthy")
         
 
-    def outdoor_plan(self):
+    def outdoor_plan(self)->workoutFun:
         logger.debug(f"Today is {self.day} and starting the workout plan for today")
 
         

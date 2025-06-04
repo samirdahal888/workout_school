@@ -1,0 +1,44 @@
+{
+    "coord": {
+        "lon": 88.3697,
+        "lat": 22.5697
+    },
+    "weather": [
+        {
+            "id": 803,
+            "main": "Clouds",
+            "description": "broken clouds",
+            "icon": "04d"
+        }
+    ],
+    "base": "stations",
+    "main": {
+        "temp": 311.87,
+        "feels_like": 314.26,
+        "temp_min": 311.87,
+        "temp_max": 311.87,
+        "pressure": 1003,
+        "humidity": 31,
+        "sea_level": 1003,
+        "grnd_level": 1003
+    },
+    "visibility": 10000,
+    "wind": {
+        "speed": 4.05,
+        "deg": 243,
+        "gust": 5.07
+    },
+    "clouds": {
+        "all": 62
+    },
+    "dt": 1749017601,
+    "sys": {
+        "country": "IN",
+        "sunrise": 1748992891,
+        "sunset": 1749041306
+    },
+    "timezone": 19800,
+    "id": 1275004,
+    "name": "Kolkata",
+    "cod": 200
+}

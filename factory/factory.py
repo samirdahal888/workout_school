@@ -1,8 +1,13 @@
 from user.User_workout_Planner import Planner
 from pathlib import Path
 import json
+from logger.logger import get_logger
+import logging
+logger = get_logger(__name__,logging.debug)
 
 def form()->Planner:
+    
+    
     name = input("Enter your name:")
     age = int(input("Enter your age:"))
     height = float(input("Enter you height:"))
@@ -15,6 +20,7 @@ def form()->Planner:
 
 def get_user_data(Base_path:Path,username:str)->Planner:
     '''get user data from file if exist , if not then creater user'''
+    logger.info('indice get user data function')
     try:
         base_file = Base_path
         target_file = f"{username}.json"
@@ -27,5 +33,6 @@ def get_user_data(Base_path:Path,username:str)->Planner:
         return Planner(user_data['name'],user_data["age"],user_data['height'],user_data['weight'],user_data["contact"],user_data['fitnesslevel'],user_data['city'])
 
     except Exception:
-        print('you are the new member here so please enter your details')
+        print('*You are the new member here so please enter your details*')
+        logger.info('filling out the form for the new user')
         return form()

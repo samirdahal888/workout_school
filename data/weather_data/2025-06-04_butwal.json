@@ -1,0 +1,44 @@
+{
+    "coord": {
+        "lon": 83.4484,
+        "lat": 27.7006
+    },
+    "weather": [
+        {
+            "id": 804,
+            "main": "Clouds",
+            "description": "overcast clouds",
+            "icon": "04d"
+        }
+    ],
+    "base": "stations",
+    "main": {
+        "temp": 306.62,
+        "feels_like": 306.62,
+        "temp_min": 306.62,
+        "temp_max": 306.62,
+        "pressure": 1006,
+        "humidity": 35,
+        "sea_level": 1006,
+        "grnd_level": 952
+    },
+    "visibility": 10000,
+    "wind": {
+        "speed": 2.85,
+        "deg": 69,
+        "gust": 2.66
+    },
+    "clouds": {
+        "all": 90
+    },
+    "dt": 1749017728,
+    "sys": {
+        "country": "NP",
+        "sunrise": 1748993426,
+        "sunset": 1749043133
+    },
+    "timezone": 20700,
+    "id": 1283562,
+    "name": "Butw\u0101l",
+    "cod": 200
+}
