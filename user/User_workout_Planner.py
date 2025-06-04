@@ -1,8 +1,8 @@
 from user.Base_user import User
 from datetime import datetime
 from enum import StrEnum,auto
-from workout.indoor import cardio,swimming
-from workout.outdoor import running
+from workout.indoor import cardio,swimming,weight
+from workout.outdoor import running,hike,rockcliming,cycling
 from typing import Callable
 import logging
 from logger.logger import get_logger
@@ -32,15 +32,15 @@ class Planner(User):
         if self.day == str(days.SUNDAY):
            return cardio(self.fitnesslevel)
         elif self.day == str(days.MONDAY):
-            return cardio(self.fitnesslevel)
+            return swimming(self.fitnesslevel)
         elif self.day== days.TUESDAY:
-            return cardio(self.fitnesslevel)
+            return weight(self.fitnesslevel)
         elif self.day ==days.WEDNESDAY:
             return cardio(self.fitnesslevel)
         elif self.day ==days.THURSDAY:
-            return wimming()
+            return weight()
         elif self.day == days.FRIDAY:
-            return cardio()
+            return swimming()
         
         else: print(f"Today is {days.SATAURDAY} its a rest day , take good rest drink water be healthy")
         
@@ -50,18 +50,18 @@ class Planner(User):
 
         
         if self.day == days.SUNDAY:
-           return OutdoorWorkout.running(self.fitnesslevel)
+           return running(self.fitnesslevel)
         elif self.day ==days.MONDAY:
-            return OutdoorWorkout.running(self.fitnesslevel)
+            return hike(self.fitnesslevel)
         elif self.day== days.TUESDAY:
-            return OutdoorWorkout.running(self.fitnesslevel)
+            return cycling(self.fitnesslevel)
         elif self.day ==days.WEDNESDAY:
-            return OutdoorWorkout.rockcliming()
+            return rockcliming(self.fitnesslevel)
         elif self.day ==days.THURSDAY:
-            return OutdoorWorkout.Treaking()
+            return running(self.fitnesslevel)
         
         elif self.day == days.FRIDAY:
-            return OutdoorWorkout.running()
+            return cycling(self.fitnesslevel)
         
         else:
             print(f"Today is {days.SATAURDAY} its a rest day , take good rest drink water be healthy")
