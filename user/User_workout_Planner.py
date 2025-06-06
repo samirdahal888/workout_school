@@ -18,50 +18,55 @@ class days(StrEnum):
     THURSDAY = auto()
     FRIDAY = auto()
     SATAURDAY = auto()
+
+day = datetime.today().strftime('%A')
+day = day.lower()
+logger.debug(f"Today is {day}")
+
 class Planner(User):
-    def __init__(self, name, age, height, weight, contactno, fitnesslevel,city):
-        super().__init__(name, age, height, weight, contactno, fitnesslevel,city)
-        self.day = datetime.today().strftime('%A')
-        self.day = self.day.lower()
-        logger.debug(f"Today is {self.day}")
+
+    ''' class the helps to plan for the workout , indoor or outdoor'''
 
     def indoor_plan(self)->workoutFun:
+        '''indoor workout plan for users for day basis '''
         #cardio ,swimming , weight
-        logger.debug(f"Today is {self.day} and starting the workout plan for today")
+        logger.debug(f"Today is {day} and starting the workout plan for today")
         logger.debug(f'fiteness level {self.fitnesslevel}')
         
-        if self.day == str(days.SUNDAY):
+        if day == str(days.SUNDAY):
            return cardio(self.fitnesslevel)
-        elif self.day == str(days.MONDAY):
+        elif day == str(days.MONDAY):
             return swimming(self.fitnesslevel)
-        elif self.day== days.TUESDAY:
+        elif day== days.TUESDAY:
             return cardio(self.fitnesslevel)
-        elif self.day ==days.WEDNESDAY:
+        elif day ==days.WEDNESDAY:
             return weight(self.fitnesslevel)
-        elif self.day ==days.THURSDAY:
-            return weight()
-        elif self.day == days.FRIDAY:
-            return swimming()
+        elif day ==days.THURSDAY:
+            return weight(self.fitnesslevel)
+        elif day == days.FRIDAY:
+            return swimming(self.fitnesslevel)
         
         else: print(f"Today is {days.SATAURDAY} its a rest day , take good rest drink water be healthy")
         
 
     def outdoor_plan(self)->workoutFun:
-        logger.debug(f"Today is {self.day} and starting the workout plan for today")
+        '''outdoor workout plan for users for day basis '''
+
+        logger.debug(f"Today is {day} and starting the workout plan for today")
 
         
-        if self.day == days.SUNDAY:
+        if day == days.SUNDAY:
            return running(self.fitnesslevel)
-        elif self.day ==days.MONDAY:
+        elif day ==days.MONDAY:
             return hike(self.fitnesslevel)
-        elif self.day== days.TUESDAY:
+        elif day== days.TUESDAY:
             return cycling(self.fitnesslevel)
-        elif self.day ==days.WEDNESDAY:
+        elif day ==days.WEDNESDAY:
             return rockcliming(self.fitnesslevel)
-        elif self.day ==days.THURSDAY:
+        elif day ==days.THURSDAY:
             return running(self.fitnesslevel)
         
-        elif self.day == days.FRIDAY:
+        elif day == days.FRIDAY:
             return cycling(self.fitnesslevel)
         
         else:

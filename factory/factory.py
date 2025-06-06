@@ -3,26 +3,28 @@ from pathlib import Path
 import json
 from logger.logger import get_logger
 import logging
-logger = get_logger(__name__,logging.debug)
+logger = get_logger(__name__,logging.DEBUG)
 
 def form()->Planner:
     
-    
-    name = input("Enter your name:")
-    age = int(input("Enter your age:"))
-    height = float(input("Enter you height:"))
-    weight = float(input("Enter your weight:"))
-    contact = input("Enter contact no:")
-    fitnesslevel = input("Enter your fitnesslevel:")
-    city = input('Enter city:')
-
-    return Planner(name,age,height,weight,contact,fitnesslevel,city)
-
-def get_user_data(Base_path:Path,username:str)->Planner:
-    '''get user data from file if exist , if not then creater user'''
-    logger.info('indice get user data function')
     try:
-        base_file = Base_path
+        name = input("Enter your name:")
+        age = int(input("Enter your age:"))
+        height = float(input("Enter you height:"))
+        weight = float(input("Enter your weight:"))
+        contact = input("Enter contact no:")
+        fitnesslevel = input("Enter your fitnesslevel (basic,intermediate,advance):")
+        city = input('Enter city:')
+    except Exception :
+        print('Invalid input')
+    else:
+        return Planner(name,age,height,weight,contact,fitnesslevel,city)
+
+def get_user_data(username:str)->Planner:
+    '''get user data from file if exist , if not then creater user'''
+    logger.info('inside get user data function')
+    try:
+        base_file = Path('data')
         target_file = f"{username}.json"
         json_file = list(base_file.rglob(target_file))
 

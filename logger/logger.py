@@ -21,7 +21,7 @@ def get_logger(logger_name: str,log_level) -> logging.Logger:
     #formate
     format = logging.Formatter('%(asctime)s -%(name)s: %(levelname)s - %(message)s')
     stream_handler.setFormatter(format)
-    logger.addHandler(stream_handler)
+    # logger.addHandler(stream_handler)
     #send logs to Betterstack
     Betterstack_handler = LogtailHandler(
         source_token=SOURCE_TOKEN,

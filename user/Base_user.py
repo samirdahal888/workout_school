@@ -7,7 +7,7 @@ import logging
 logger = get_logger(__name__,logging.DEBUG)
 
 class User(ABC):
-    """base class for user
+    """Base class for user
 
     name: name of the user
     age:age of the user
@@ -53,11 +53,11 @@ class User(ABC):
         }
         return dictionaty
 
-    def ExporttoJSON(self,filepath:Path)->None:
+    def ExporttoJSON(self,)->None:
         '''Export the dictionary to the json file in the desier file'''
-        logger.info(f'exporting the user information to the json file {filepath}')
-        os.makedirs(filepath,exist_ok=True)
-        json_file = f'{filepath}/{self.name}.json'
+        logger.info(f'exporting the user information to the json file data/user_data')
+        os.makedirs("data/user_data",exist_ok=True)
+        json_file = f'data/user_data/{self.name}.json'
         
         with open(json_file,'w') as f:
             json.dump(self.to_dict(),f,indent=2)

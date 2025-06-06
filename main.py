@@ -2,11 +2,11 @@ from user.Base_user import User
 from factory import factory
 from datetime import datetime,date
 from weather.weather import featch_weather_data,current_weather,save_weather_data
-from config import UAER_DATA_DIR,WEATHER_DATA_DIR,BAD_WEATHER,JSON_DATA_DIR
+from config import BAD_WEATHER
 
 
 def greet_user(user:User)->None:
-    print(f'Hii {user.name} welccome to the workout school once again')
+    print(f'Hii {user.name} welcome to the workout school once again')
     print(f"Today is {date.today()} {datetime.today().strftime('%A')} ")
 
 def weather_handeler(user:User)->None:
@@ -14,7 +14,7 @@ def weather_handeler(user:User)->None:
          return
     else:
         featch_weather_data(user.city)
-        save_weather_data(WEATHER_DATA_DIR,user.city)
+        save_weather_data(user.city)
         weather_data = current_weather(user.city)
         #{
         #      'weather':'sunny',
@@ -33,21 +33,24 @@ def weather_handeler(user:User)->None:
 
         else:
             indoor_or_outdoor =  int(input("Do you want to do indoor or outdoor workout today\n press 1 for indoor \n press 2 for outdoor :"))
+
             if indoor_or_outdoor==1:
+                print('*************Your workout plan for today***************')
                 user.indoor_plan()
             else:
+                print('*************Your workout plan for today***************')
                 user.outdoor_plan()
         
 
-def main():
+def main()->None:
     print()
     print('*************** WORKOUT SCHOOL **************************')
     print()
     name = input("Enter your name:")
     print()
-    user = factory.get_user_data(UAER_DATA_DIR,name)
+    user = factory.get_user_data(name)
     user.to_dict()
-    user.ExporttoJSON(JSON_DATA_DIR)
+    user.ExporttoJSON()
     print()
     print('******************** WELCOME ************************')
     greet_user(user)

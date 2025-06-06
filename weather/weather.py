@@ -14,13 +14,14 @@ API_KEY = os.getenv('WEATHER_API_KEY')
 
 
 def featch_weather_data(city:str)->json:
-    """it helps to featch the weather of the particular city based on the city provided and correct API"""
+    """It helps to featch the weather of the particular city based on the city provided and correct API"""
     logger.info("starting the featch_weather_data function to featch data from api")
     
     response = requests.get(f'https://api.openweathermap.org/data/2.5/weather?q={city}&appid={API_KEY}')
     logger.debug(f"respose status code from api is {response.status_code}")
     if response.status_code!=200:
         logger.debug(f"city not found {response.status_code}")
+        print('city not found')
         return False
     data = response.json()
     return data
@@ -38,10 +39,12 @@ def current_weather(city:str)->None:
     return weather_data
 
 
-def save_weather_data(filepath:Path,city)->None:
-    logger.info(f'saving the weather of {city} data to {filepath}')
+def save_weather_data(city)->None:
+    logger.info(f'saving the weather of {city} data to weather_data')
     weather_data = featch_weather_data(city)
-    with open(f'{filepath}/{date.today()}_{city}.json','w') as f:
+    os.makedirs("data/weather_data",exist_ok=True)
+
+    with open(f'data/weather_data/{date.today()}_{city}.json','w') as f:
         json.dump(weather_data,f,indent=4)
 
 
