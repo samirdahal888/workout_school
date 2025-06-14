@@ -40,6 +40,7 @@ def weather_handeler(user:User)->None:
             else:
                 print('*************Your workout plan for today***************')
                 user.outdoor_plan()
+     
         
 
 def main()->None:
